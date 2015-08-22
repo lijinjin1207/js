@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body,ul,li,div{ padding:0; margin:0; list-style:none;}
+
+#tab{ width:1000px; margin:20px auto;}
+#tableft{ width:150px; float:left;}
+#tabright{ width:800px; float:right;}
+#tableft ul{width:150px;}
+#tableft ul li{ width:150px; height:50px; font-family:"微软雅黑"; text-align:center; margin-top:15px;}
+#tableft ul li a{ display:block; width:150px; height:50px; text-decoration:none; line-height:50px; font-size:14px; background:#0FF;}
+#tableft ul li a:hover{ background:#CCC;}
+.content{ font-family:"微软雅黑"; font-size:16px; display:none; clear:both; text-align:center;}
+.selected{ display:block;}
+
+</style>
+</head>
+
+<body>
+	<div id="tab">
+    	<div id="tableft">
+        	<ul>
+            	<li><a href="#">关于我们</a></li>
+                <li><a href="#">公司文化</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+        <div id="tabright">
+        	<div class="content selected">
+            	关于我们内容
+            </div>
+            <div class="content">
+            	公司文化内容
+            </div>
+            <div class="content">
+            	联系我们内容
+            </div>
+        </div>
+    </div>
+    
+   <script type="text/javascript">
+		var oLeft=document.getElementById("tableft");
+		var oRight=document.getElementById("tabright");
+		var oLis=oLeft.getElementsByTagName("li");
+		var oCon=oRight.getElementsByClassName("content");
+		function selChange(nIndex){
+			
+			for(var i=0;i<oLis.length;i++){
+				if (i == nIndex) {
+					oCon[i].className="content selected";
+				}
+				else {
+					oCon[i].className="content";
+				}
+				
+			}
+		}
+			
+			/*for(var i=0;i<oLis.length;i++){
+				
+				oCon[i].className="content";
+				
+				
+			}
+			oCon[nIndex].className+=" selected";
+			
+		}*/
+		for(var i=0;i<oLis.length;i++){
+			oLis[i].index=i;
+			oLis.item(i).onclick=function(){
+				selChange(this.index);
+			}
+		}
+		
+
+	</script>
+   
+</body>
+</html>

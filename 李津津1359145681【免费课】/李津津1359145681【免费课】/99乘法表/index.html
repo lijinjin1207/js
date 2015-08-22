@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>99乘法表</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+</head>
+
+<body>
+	<div id="all">
+    	
+    </div>
+
+
+<script type="text/javascript">
+	var oAll=document.getElementById("all");
+	var htmlStr="";
+	for(var i=1;i<=9;i++){
+		htmlStr+="<div class='row'>";
+		for(var j=1;j<=i;j++){
+			htmlStr+="<div class='col'>";
+			htmlStr+=j+"*"+i+"="+(j*i);
+			htmlStr+="</div>";
+		}
+		htmlStr+="</div>";
+	}
+	oAll.innerHTML=htmlStr;
+	var oRows=oAll.getElementsByClassName("row");
+	//console.log(oRows.length);
+	for(var i=0;i<oRows.length;i++){
+		var n=i%2;
+		if(n){
+			oRows.item(i).className+=" aa";
+		} 
+		else{
+			oRows.item(i).className+=" bb";
+		}
+		
+	}
+</script>
+</body>
+</html>
